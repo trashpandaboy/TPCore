@@ -10,7 +10,7 @@ namespace com.trashpandaboy.core
         }
         static Manager _instance = null;
 
-        private void Awake()
+        protected virtual void Awake()
         {
             if(_instance != null && _instance != this)
             {
