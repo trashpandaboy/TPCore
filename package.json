@@ -1,0 +1,12 @@
+{
+  "name": "com.trashpandaboy.unitycoreutils",
+  "version": "0.0.1",
+  "displayName": "TPUnityCoreUtils",
+  "description": "Contains some common solutions",
+  "unity": "2019.1",
+  "unityRelease": "0b5",
+  "author": {
+    "name": "TrashPandaBoy",
+    "url": "https://github.com/trashpandaboy"
+  }
+}
