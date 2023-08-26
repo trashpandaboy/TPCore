@@ -1,5 +1,5 @@
 {
-    "name": "TPUnityCoreEditor",
+    "name": "com.trashpandaboy.core.Editor",
     "rootNamespace": "",
     "references": [],
     "includePlatforms": [],

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace com.trashpandaboy.unitycoreutils
+namespace com.trashpandaboy.core
 {
     public class Manager : MonoBehaviour
     {
