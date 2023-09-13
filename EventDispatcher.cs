@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
 using System.Collections.Generic;
+using com.trashpandaboy.core.Utils;
 
 namespace com.trashpandaboy.core
 {
@@ -9,7 +10,7 @@ namespace com.trashpandaboy.core
         /// <summary>
         /// Contains all the available Events
         /// </summary>
-        private static Dictionary<string, UnityAction> eventDictionary;
+        private static Dictionary<string, UnityAction<DataSet>> eventDictionary;
 
         /// <summary>
         /// Initialize the dictionary
@@ -18,7 +19,7 @@ namespace com.trashpandaboy.core
         {
             if (eventDictionary == null)
             {
-                eventDictionary = new Dictionary<string, UnityAction>();
+                eventDictionary = new Dictionary<string, UnityAction<DataSet>>();
             }
         }
 
@@ -27,9 +28,9 @@ namespace com.trashpandaboy.core
         /// </summary>
         /// <param name="eventName">The name of event who will trigger the action</param>
         /// <param name="listeningAction">The action to trigger</param>
-        public static void StartListening(string eventName, UnityAction listeningAction)
+        public static void StartListening(string eventName, UnityAction<DataSet> listeningAction)
         {
-            UnityAction eventObject;
+            UnityAction<DataSet> eventObject;
             if (eventDictionary.TryGetValue(eventName, out eventObject))
             {
                 //Add more listening action to the existing event
@@ -51,9 +52,9 @@ namespace com.trashpandaboy.core
         /// </summary>
         /// <param name="eventName">The name of event</param>
         /// <param name="listeningAction">The listening action</param>
-        public static void StopListening(string eventName, UnityAction listeningAction)
+        public static void StopListening(string eventName, UnityAction<DataSet> listeningAction)
         {
-            UnityAction eventObject;
+            UnityAction<DataSet> eventObject;
             if (eventDictionary.TryGetValue(eventName, out eventObject))
             {
                 //Remove event from the existing one
@@ -69,12 +70,12 @@ namespace com.trashpandaboy.core
         /// 
         /// </summary>
         /// <param name="eventName">Event name contained in the dictionary.</param>
-        public static void TriggerEvent(string eventName)
+        public static void TriggerEvent(string eventName, DataSet eventParameters = null)
         {
-            UnityAction eventObject;
+            UnityAction<DataSet> eventObject;
             if (eventDictionary.TryGetValue(eventName, out eventObject))
             {
-                eventObject?.Invoke();
+                eventObject?.Invoke(eventParameters);
             }
         }
     }
