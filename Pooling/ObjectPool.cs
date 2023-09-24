@@ -48,6 +48,7 @@ namespace com.trashpandaboy.core.Pooling
                 if (!_pool[i].activeInHierarchy)
                 {
                     toReturn = _pool[i];
+                    break;
                 }
             }
 
