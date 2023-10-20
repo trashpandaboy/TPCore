@@ -8,7 +8,7 @@ namespace com.trashpandaboy.core
         {
             get { return _instance; }
         }
-        static T _instance;
+        protected static T _instance;
 
         protected virtual void Awake()
         {
