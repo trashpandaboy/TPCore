@@ -30,6 +30,10 @@ namespace com.trashpandaboy.core
         /// <param name="listeningAction">The action to trigger</param>
         public static void StartListening(string eventName, UnityAction<DataSet> listeningAction)
         {
+            if (eventDictionary == null)
+            {
+                eventDictionary = new Dictionary<string, UnityAction<DataSet>>();
+            }
             UnityAction<DataSet> eventObject;
             if (eventDictionary.TryGetValue(eventName, out eventObject))
             {
